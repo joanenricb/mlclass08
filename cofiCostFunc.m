@@ -46,9 +46,8 @@ J = 1/2 * sum(sum(((X*Theta' - Y).*R).^2)) + ...
 %size(X_grad) %5x3
 %size(Theta_grad)%4x3
 
-
-X_grad = ((X*Theta' - Y).*R)*Theta;
-Theta_grad = ((X*Theta' - Y).*R)'*X;
+X_grad = ((X*Theta' - Y).*R)*Theta + lambda*X;
+Theta_grad = ((X*Theta' - Y).*R)'*X + lambda*Theta;
 %size(X)%5x3
 %size(Theta)%4x3
 %size(R) %5x4
@@ -57,10 +56,6 @@ Theta_grad = ((X*Theta' - Y).*R)'*X;
 
 %size(X_grad)%3x4
 %size(Theta_grad)%5x3
-
-
-
-
 
 
 % =============================================================
